@@ -53,11 +53,7 @@ $(".btn").click(function() {
     var gameOverSound = new Audio("sounds/wrong.mp3");
     gameOverSound.play();
     gameOverAnimation();
-    started = false;
-    level = 0;
-    gamePattern = [];
-    userClickedPattern = [];
-    userClickTime = 0;
+    startOver();
   }
 });
 
@@ -78,4 +74,13 @@ function gameOverAnimation() {
   setTimeout(function() {
     $("body").removeClass("game-over")
   }, 200);
+}
+
+function startOver() {
+  started = false;
+  level = 0;
+  gamePattern = [];
+  userClickedPattern = [];
+  userClickTime = 0;
+  $("#level-title").text("Press A Key to Start");
 }
