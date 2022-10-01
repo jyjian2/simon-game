@@ -50,6 +50,9 @@ $(".btn").click(function() {
     }
   } else {
     $("#level-title").text("Game Over");
+    var gameOverSound = new Audio("sounds/wrong.mp3");
+    gameOverSound.play();
+    gameOverAnimation();
     started = false;
     level = 0;
     gamePattern = [];
@@ -69,3 +72,10 @@ function animatePress(currentColour) {
     $("#" + currentColour).removeClass("pressed")
   }, 100)
 };
+
+function gameOverAnimation() {
+  $("body").addClass("game-over");
+  setTimeout(function() {
+    $("body").removeClass("game-over")
+  }, 200);
+}
